@@ -25,3 +25,6 @@ class HomePage(BasePage):
 
     def go_to_basket(self):
         self.driver.find_element(*HomePageLocators.GO_TO_BASKET).click()
+
+    def go_to_login_page(self):
+        self.driver.find_element(*HomePageLocators.LOGIN_BTN).click()

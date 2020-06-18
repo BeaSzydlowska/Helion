@@ -11,6 +11,7 @@ class LoginPageLocators():
     PASSWORD = (By.NAME, "haslo")
     ZALOGUJ_BTN = (By.XPATH, "//button[contains(text(),'Zaloguj się')]")
     SIGN_UP_BTN =(By.XPATH, "//a[@class='button']")
+    ERROR = (By.XPATH, "//h4[contains(text(),'Niestety podałeś niewłaściwy adres email lub hasło.')]")
 
 class RegisterPageLocators():
     EMAIL = (By.NAME, "loginemail")
