@@ -3,6 +3,7 @@ class HomePageLocators():
     SEARCHER = (By.ID, "inputSearch")
     SEARCH_BTN = (By.XPATH,"//button[@class='button']")
     BASKET_COUNTER = (By.ID, "koszykbox")
+    GO_TO_BASKET = (By.XPATH, "//span[@class='hideFixed']")
 #     Python dla każdego. Podstawy programowania. Wydanie III Michael Dawson
 
 class SearchPageLocators():
@@ -19,10 +20,21 @@ class ProductPageLocators():
     ADD_EBOOK_TO_BASKET = (By.ID, "addToBasket_pytdk3_ebook")
     BOOK_BOX = (By.ID, "box_druk")
     EBOOK_BOX = (By.ID, "box_ebook")
+    ADD_TO_CART_BTN_LIST = (By.XPATH, "//a[contains(text(), 'Dodaj do koszyka')]")
+    BOX = (By.XPATH, "//fieldset[@class='active']")
+    ADD_TO_CART = (By.XPATH, "//fieldset[@class='active']/p[2]/a[contains(text(), 'Dodaj do koszyka')]")
 
 
 
-class CartPageLocators():
+class BasketPageLocators():
     ROWS = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']")
+    AMOUNT = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']/td[@class='amount']//input[@class = 'ilosc']")
+    TITLE = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']//td[@class='desc']//a")
     REMOVE = (By.XPATH, "//a[contains(text(),'zaznaczone')]")
+    BACK = (By.CLASS_NAME, "more")
+    SELECT_ALL = (By.XPATH, "//th[@class='checkbox']//span[@class='input']")
+    EMPTY_BASKET = (By.XPATH, "//p[contains(text(),'Twój koszyk jest pusty')]")
+
+
+
 

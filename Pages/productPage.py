@@ -14,18 +14,18 @@ class ProductPage(BasePage):
         title = self.driver.find_element(*ProductPageLocators.TITLE)
         return title.text
 
-    def choose_ebook_option(self):
-        ebook_box = self.driver.find_element(*ProductPageLocators.EBOOK_BOX)
-        if ebook_box.is_selected():
-            print("eboo wybrano")
-            pass
-        else:
-            ebook_box.click()
-        sleep(10)
+    # def choose_ebook_option(self):
+    #     ebook_box = self.driver.find_element(*ProductPageLocators.EBOOK_BOX)
+    #     if ebook_box.is_selected():
+    #         print("eboo wybrano")
+    #         pass
+    #     else:
+    #         ebook_box.click()
+    #     sleep(10)
 
-    def add_ebook_to_basket(self):
-        self.driver.find_element(*ProductPageLocators.ADD_EBOOK_TO_BASKET).click()
-        sleep(5)
+    # def add_ebook_to_basket(self):
+    #     self.driver.find_element(*ProductPageLocators.ADD_EBOOK_TO_BASKET).click()
+    #     sleep(5)
 
     # NIE WIEM JAK TO ZROBIC- Z DEFAULTA TO JEST ZAWSZE TA OPCJA !!!! I NIE UMIEM SOBIE OKRESLIC CZY TO JEST WYBRANE CZY NIE
     # def choose_book_option(self):
@@ -37,10 +37,10 @@ class ProductPage(BasePage):
     #     else:
     #         book_box.click()
     #     sleep(10)
-
-    def add_book_to_basket(self):
-        self.driver.find_element(*ProductPageLocators.ADD_BOOK_TO_BASKET).click()
-        sleep(15)
+    #
+    # def add_book_to_basket(self):
+    #     self.driver.find_element(*ProductPageLocators.ADD_BOOK_TO_BASKET).click()
+    #     sleep(15)
 
     def enter_book_quantity(self, quantity):
         print("wchodze do quantity")
@@ -56,3 +56,9 @@ class ProductPage(BasePage):
         else:
             return quantity
 
+
+    def add_to_cart(self):
+        WebDriverWait(self.driver,10).until(EC.element_to_be_clickable(ProductPageLocators.ADD_TO_CART))
+        button= self.driver.find_element(*ProductPageLocators.ADD_TO_CART)
+        button.click()
+        sleep(5)

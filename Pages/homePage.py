@@ -15,3 +15,13 @@ class HomePage(BasePage):
             searcher.submit()
         else:
             print("searcher field is disabled.")
+
+    def return_to_home_page(self):
+        self.driver.get('https://helion.pl/')
+        title = self.driver.title
+        print(title)
+        #Księgarnia internetowa informatyczna Helion.pl - wydawnictwo informatyczne, książki, kursy
+        return title
+
+    def go_to_basket(self):
+        self.driver.find_element(*HomePageLocators.GO_TO_BASKET).click()

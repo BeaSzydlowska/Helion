@@ -20,33 +20,48 @@ class SearchPage(BasePage):
     Klasa bazowa dla każdej strony
     """
 
-    def search_results(self):
+    # def search_results(self):
+    #     try:
+    #         napis = self.driver.find_element(*SearchPageLocators.NO_SEARCH_RESULTS)
+    #         print(napis.text)
+    #         # return napis.text
+    #         return False
+    #     except:
+    #         lista = self.driver.find_elements(*SearchPageLocators.LIST_OF_SEARCHED_PRODUCTS)
+    #         lista_names = self. driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
+    #         print(len(lista))
+    #         list_of_returned_titles = []
+    #         for title in lista_names:
+    #             print(title.text)
+    #             list_of_returned_titles.append(title.text)
+    #         print(list_of_returned_titles)
+    #         return list_of_returned_titles
+
+    def search_results_is_not_empty(self):
         try:
             napis = self.driver.find_element(*SearchPageLocators.NO_SEARCH_RESULTS)
-            # print(napis.text)
-            return napis.text
+            print(napis.text)
+            # return napis.text
+            return False
         except:
-            lista = self.driver.find_elements(*SearchPageLocators.LIST_OF_SEARCHED_PRODUCTS)
-            lista_names = self. driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
-            print(len(lista))
-            list_of_returned_titles = []
-            for title in lista_names:
-                print(title.text)
-                list_of_returned_titles.append(title.text)
-            print(list_of_returned_titles)
-            return list_of_returned_titles
+            return True
 
+
+
+    def return_list_of_searched_results(self):
+
+        lista = self.driver.find_elements(*SearchPageLocators.LIST_OF_SEARCHED_PRODUCTS)
+        lista_names = self.driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
+        print(len(lista))
+        list_of_returned_titles = []
+        for title in lista_names:
+            print(title.text)
+            list_of_returned_titles.append(title.text)
+        print(list_of_returned_titles)
+        return list_of_returned_titles
 
 
     def choose_product_from_list(self, index):
-        # lista = self.driver.find_elements(*SearchPageLocators.LIST_OF_SEARCHED_PRODUCTS)
-        # # print(len(lista))
-        # # lista[0].click()
-        # # sleep(5)
-        # # for element in lista:
-        # #     button = element.find_element(By.XPATH, "//img")
-        # #     button.click()
-        # #     sleep(5)
         names_of_searched_products = self.driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
         names_of_searched_products[index].click()
 
