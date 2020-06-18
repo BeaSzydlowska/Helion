@@ -1,13 +1,5 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
 from Pages.basePage import  BasePage
-from Locators.locators import HomePageLocators
-from Locators.locators import SearchPageLocators
-from Locators.locators import ProductPageLocators
 from Locators.locators import BasketPageLocators
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
@@ -33,19 +25,30 @@ class BasketPage(BasePage):
             return int(amount)
 
 
-    def check_checkbox(self,product):
+    def check_checkbox(self, product):
         rows = self.driver.find_elements(*BasketPageLocators.ROWS)
+
         for row in rows:
-            name = row.find_element_by_xpath("//td[@class='desc']//h2/a")
-            if name.text in product:
-                checkbox = row.find_element_by_xpath("//td[@class='checkbox']")
+            name = row.find_element_by_xpath("td[@class='desc']//h2/a")
+            print(f"to jest name.text{name.text}")
+            # if name.text in product:
+            if product in name.text:
+                print("weszlo w ifa")
+                checkbox = row.find_element_by_xpath("td/div/label/span[@class='input']")
                 checkbox.click()
+                sleep(5)
+                i = False
                 if checkbox.is_selected():
                     i = True
                 else:
                     i = False
+                print(i)
 
-            print(i)
+
+
+
+
+
 
 
 
@@ -70,7 +73,6 @@ class BasketPage(BasePage):
             list_of_products = []
             rows = self.driver.find_elements(*BasketPageLocators.ROWS)
             for row in rows:
-                # list_of_products = []
                 name = row.find_element_by_xpath("//td[@class='desc']//h2/a")
                 print(name.text)
                 list_of_products.append(name.text)
@@ -84,15 +86,14 @@ class BasketPage(BasePage):
         select_all_btn = self.driver.find_element(*BasketPageLocators.SELECT_ALL)
         select_all_btn.click()
         rows = self.driver.find_elements(*BasketPageLocators.ROWS)
-        i = True
+        i = False
         for row in rows:
-            checkbox = row.find_element_by_xpath("//td[@class='checkbox']")
+            checkbox = row.find_element_by_xpath("td/div/input[@type = 'checkbox']")
             if checkbox.is_selected():
                 i = True
             else:
                 i = False
-
-        print(i)
+            print(i)
 
 
 
