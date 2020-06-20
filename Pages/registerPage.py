@@ -1,6 +1,5 @@
 from Pages.basketPage import BasePage
 from Locators.locators import RegisterPageLocators
-from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -19,9 +18,7 @@ class RegisterPage(BasePage):
 
     def check_regulation(self):
         WebDriverWait(self.driver,5).until(EC.element_to_be_clickable(RegisterPageLocators.REGULATIONS_CHECKBOX))
-        checkbox = self.driver.find_element(*RegisterPageLocators.REGULATIONS_CHECKBOX)
-        checkbox.click()
-        # self.driver.find_element(*RegisterPageLocators.REGULATIONS_CHECKBOX).click()
+        self.driver.find_element(*RegisterPageLocators.REGULATIONS_CHECKBOX).click()
 
     def check_newsletter(self):
         WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(RegisterPageLocators.NEWSLETTER_CHECKBOX))
@@ -30,7 +27,6 @@ class RegisterPage(BasePage):
     def click_on_register_btn(self):
         WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(RegisterPageLocators.REGISTER_BTN))
         self.driver.find_element(*RegisterPageLocators.REGISTER_BTN).click()
-        sleep(5)
 
     def verify_visible_errors(self):
         errors = self.driver.find_elements(*RegisterPageLocators.ERRORS)
@@ -39,6 +35,5 @@ class RegisterPage(BasePage):
             if error.is_displayed():
                 error = error.text
                 visible_errors.append(error)
-        print(visible_errors)
         return visible_errors
 

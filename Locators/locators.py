@@ -29,6 +29,7 @@ class RegisterPageLocators():
 
 class AccountPageLocators():
     TEXT_CONFIRMATION = (By.XPATH,"//p[contains(text(),'Aktywacja konta w helion.pl, sprawd')]")
+    GREETING = (By.XPATH, "//a[@id='helloUser']")
 
 class SearchPageLocators():
     LIST_OF_SEARCHED_PRODUCTS = (By.XPATH, "//ul[@class='list']/li")

@@ -1,7 +1,7 @@
 from Pages.basePage import  BasePage
-from Locators.locators import HomePageLocators
 from Locators.locators import LoginPageLocators
-from time import sleep
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage(BasePage):
     def fill_email(self,email):
@@ -13,7 +13,10 @@ class LoginPage(BasePage):
         passwd.send_keys(password)
 
     def click_on_login_btn(self):
+        WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(LoginPageLocators.ZALOGUJ_BTN))
         self.driver.find_element(*LoginPageLocators.ZALOGUJ_BTN).click()
 
-    def click_on_signup_btn(self):
-        self.driver.find_element(*LoginPageLocators.SIGN_UP_BTN).click()
+
+    def visible_errors(self):
+        error = self.driver.find_element(*LoginPageLocators.ERROR)
+        return error.text
