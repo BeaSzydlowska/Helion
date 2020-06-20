@@ -4,7 +4,10 @@ class HomePageLocators():
     SEARCH_BTN = (By.XPATH,"//button[@class='button']")
     BASKET_COUNTER = (By.ID, "koszykbox")
     GO_TO_BASKET = (By.XPATH, "//span[@class='hideFixed']")
-    LOGIN_BTN = (By.XPATH, "//div[@class='your-profile']//a[contains(text(),'Twoje konto')]")
+    ACCOUNT_BTN = (By.XPATH, "//div[@class='your-profile']//a[contains(text(),'Twoje konto')]")
+    LOGIN_BTN = (By.CLASS_NAME, "login-link")
+    REGISTER_BTN = (By.CLASS_NAME, "register-link")
+
 
 class LoginPageLocators():
     EMAIL= (By.NAME, "loginemail")
