@@ -7,6 +7,7 @@ class HomePageLocators():
     ACCOUNT_BTN = (By.XPATH, "//div[@class='your-profile']//a[contains(text(),'Twoje konto')]")
     LOGIN_BTN = (By.CLASS_NAME, "login-link")
     REGISTER_BTN = (By.CLASS_NAME, "register-link")
+    COOKIE = (By.ID, "rodo-ok")
 
 
 class LoginPageLocators():
@@ -17,13 +18,17 @@ class LoginPageLocators():
     ERROR = (By.XPATH, "//h4[contains(text(),'Niestety podałeś niewłaściwy adres email lub hasło.')]")
 
 class RegisterPageLocators():
-    EMAIL = (By.NAME, "loginemail")
-    PASSWORD = (By.NAME, "haslo")
-    REPEAT_PASSWORD = (By.NAME, "haslo")
-    REGULATIONS_CHECKBOX =(By.XPATH, "//label[@for='zgoda']/span")
-    NEWSLETTER_CHECKBOX = (By.XPATH, "//label[@for='newsletter_tak']/span")
+    EMAIL = (By.NAME, "email")
+    PASSWORD = (By.NAME, "haslo1")
+    REPEAT_PASSWORD = (By.NAME, "haslo2")
+    REGULATIONS_CHECKBOX = (By.XPATH, "//label[@for='zgoda']")
+    NEWSLETTER_CHECKBOX = (By.XPATH, "//label[@for='newsletter_tak']")
     REGISTER_BTN = (By.XPATH, "//button[contains(text(),'Zakładam konto')]")
+    ERRORS = (By.XPATH, "//div[@class='error-info']/p/label[@class='error']")
 
+
+class AccountPageLocators():
+    TEXT_CONFIRMATION = (By.XPATH,"//p[contains(text(),'Aktywacja konta w helion.pl, sprawd')]")
 
 class SearchPageLocators():
     LIST_OF_SEARCHED_PRODUCTS = (By.XPATH, "//ul[@class='list']/li")

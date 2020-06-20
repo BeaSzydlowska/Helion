@@ -28,13 +28,19 @@ class HomePage(BasePage):
         self.driver.find_element(*HomePageLocators.GO_TO_BASKET).click()
 
 
-
     def go_to_register_page(self):
         account_btn = self.driver.find_element(*HomePageLocators.ACCOUNT_BTN)
         webdriver.ActionChains(self.driver).move_to_element(account_btn).perform()
         register = self.driver.find_element(*HomePageLocators.REGISTER_BTN)
         register.click()
-        sleep(5)
 
     def go_to_login_page(self):
-            pass
+        account_btn = self.driver.find_element(*HomePageLocators.ACCOUNT_BTN)
+        webdriver.ActionChains(self.driver).move_to_element(account_btn).perform()
+        register = self.driver.find_element(*HomePageLocators.LOGIN_BTN)
+        register.click()
+
+    def accept_cookie_policy(self):
+        WebDriverWait(self.driver,5).until(EC.presence_of_element_located(HomePageLocators.COOKIE))
+        cookie = self.driver.find_element(*HomePageLocators.COOKIE)
+        cookie.click()
