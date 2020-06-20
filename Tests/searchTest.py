@@ -7,7 +7,7 @@ import unittest
 # hp.enter_searched_product("Python dla każdego. Podstawy programowania. Wydanie III Michael Dawson")
 # hp.enter_searched_product("fdsgdsggd")
 # hp.enter_searched_product("Python")
-class searchTest(BaseTest):
+class SearchTest(BaseTest):
     """ Testy związane z wyszukiwaniem """
     # def test_search_non_existing_product(self):
     #     "wyszukiwanie pozycji, ktora nie istnieje w bazie - działa"

@@ -16,6 +16,7 @@ class LoginPageLocators():
     ZALOGUJ_BTN = (By.XPATH, "//button[contains(text(),'Zaloguj się')]")
     SIGN_UP_BTN =(By.XPATH, "//a[@class='button']")
     ERROR = (By.XPATH, "//h4[contains(text(),'Niestety podałeś niewłaściwy adres email lub hasło.')]")
+    LOGOUT_MESSAGE = (By.XPATH, "//p[contains(text(),'poprawnie wylogowany')]")
 
 class RegisterPageLocators():
     EMAIL = (By.NAME, "email")
@@ -30,6 +31,7 @@ class RegisterPageLocators():
 class AccountPageLocators():
     TEXT_CONFIRMATION = (By.XPATH,"//p[contains(text(),'Aktywacja konta w helion.pl, sprawd')]")
     GREETING = (By.XPATH, "//a[@id='helloUser']")
+    LOG_OUT_BTN = (By.XPATH, "//a[@class='login-link']")
 
 class SearchPageLocators():
     LIST_OF_SEARCHED_PRODUCTS = (By.XPATH, "//ul[@class='list']/li")

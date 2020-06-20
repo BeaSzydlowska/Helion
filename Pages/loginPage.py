@@ -16,6 +16,9 @@ class LoginPage(BasePage):
         WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(LoginPageLocators.ZALOGUJ_BTN))
         self.driver.find_element(*LoginPageLocators.ZALOGUJ_BTN).click()
 
+    def verify_logout(self):
+        logout_message = self.driver.find_element(*LoginPageLocators.LOGOUT_MESSAGE)
+        return logout_message.text
 
     def visible_errors(self):
         error = self.driver.find_element(*LoginPageLocators.ERROR)

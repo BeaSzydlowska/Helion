@@ -6,7 +6,7 @@ from Pages.searchPage import SearchPage
 from Pages.productPage import ProductPage
 import unittest
 
-class registerTest(BaseTest):
+class RegisterTest(BaseTest):
     # def test_01_register_fill_required_fields_with_correct_data_and_check_all_required_regulations(self):
     #     """Sprawdzenie możliwości założenia konta w serwisie przy wypełnieniu wymaganych pól poprawnymi zdanymi i zaznaczemiu obowiązkowych zgód"""
     #     mail = "hivoc67077@qmrbe.com"
