@@ -4,71 +4,45 @@ from Pages.searchPage import SearchPage
 from Pages.productPage import ProductPage
 import unittest
 
-# hp.enter_searched_product("Python dla każdego. Podstawy programowania. Wydanie III Michael Dawson")
-# hp.enter_searched_product("fdsgdsggd")
-# hp.enter_searched_product("Python")
 class SearchTest(BaseTest):
-    """ Testy związane z wyszukiwaniem """
-    # def test_search_non_existing_product(self):
-    #     "wyszukiwanie pozycji, ktora nie istnieje w bazie - działa"
+    """ Testy związane z wyszukiwaniem produktów """
+    # def test_01_search_non_existing_product(self):
+    #     """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania z podaniem danych niepoprawnych (nieistniejących w bazie)"""
     #     product = "fdsgdsggd"
     #     hp = HomePage(self.driver)
     #     hp.enter_searched_product(product)
     #     sp = SearchPage(self.driver)
-    #     results = sp.search_results()
-    #     self.assertEqual(results, "Nie znaleziono szukanej frazy", "Product exist in our database")
-    #
+    #     results = sp.search_results_is_not_empty()
+    #     if self.assertFalse(results, "There is a product on a list"):
+    #         info = sp.display_message_when_search_results_are_empty()
+    #         self.assertEqual(info, "Nie znaleziono szukanej frazy", "Product exist in our database")
 
-    # def test_phrase_searching(self):
-    #     "wyszukiwanie pozycji po zadanej frazie -działa"
-    #
+    # def test_02_searching_by_phrase(self):
+    #     """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania z podaniem istniejącej frazy"""
     #     product = "Python"
     #     hp = HomePage(self.driver)
     #     hp.enter_searched_product(product)
     #     sp = SearchPage(self.driver)
-    #     results = sp.search_results()
-    #     for element in results:
-    #         print (element)
-    #         self.assertIn(product, element, "The search phrase was not found in the title")
+    #     results = sp.search_results_is_not_empty()
+    #     self.assertTrue(results, "There is no product on a list")
+    #     titles = sp.return_list_of_titles_searched_results()
+    #     for title in titles:
+    #         self.assertIn(product, title, "The search phrase was not found in the title")
 
-    def test_title_search(self):
+    def test_03_searching_by_title(self):
+        """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania z podaniem istniejącego dokładnego tytułu"""
         product = "Python dla każdego. Podstawy programowania. Wydanie III"
         hp = HomePage(self.driver)
         hp.enter_searched_product(product)
         sp = SearchPage(self.driver)
-        results = sp.search_results()
-        # for element in results:
-        #     print(element)
-        #     self.assertIn(product, element, "The search phrase was not found in the title")
+        results = sp.search_results_is_not_empty()
+        self.assertTrue(results, "There is no product on a list")
+        default_sorting = sp.verify_if_sorting_by_best_match_is_set_as_default()
+        self.assertTrue(default_sorting, "Sorting by best match is not set as default")
         sp.choose_product_from_list(0)
         pp = ProductPage(self.driver)
         title  = pp.product_title()
         self.assertIn(product, title, "incorrect title")
-
-
-
-
-
-
-#     sp.search_product("Python dla każdego. Podstawy programowania. Wydanie III Michael Dawson")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

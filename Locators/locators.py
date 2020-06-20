@@ -39,6 +39,7 @@ class SearchPageLocators():
     LIST_OF_NAMES = (By.XPATH, "//ul[@class='list']/li//h3/a")
     ADD_TO_CART_BTN = (By.XPATH, "//p[contains(@class, 'price-incart')]/a[@rel='nofollow']")
     NO_SEARCH_RESULTS = (By.CLASS_NAME, "not-found")
+    SORTING_DEFAULT = (By.XPATH, "//span [@id='select2-sortby-container']")
 
 class ProductPageLocators():
     TITLE = (By.XPATH, "//h1/span[@itemprop ='name']")

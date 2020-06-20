@@ -40,30 +40,40 @@ class SearchPage(BasePage):
     def search_results_is_not_empty(self):
         try:
             napis = self.driver.find_element(*SearchPageLocators.NO_SEARCH_RESULTS)
-            print(napis.text)
-            # return napis.text
             return False
         except:
             return True
 
+    def display_message_when_search_results_are_empty(self):
+        napis = self.driver.find_element(*SearchPageLocators.NO_SEARCH_RESULTS)
+        return napis.text
 
+    def verify_if_sorting_by_best_match_is_set_as_default(self):
+        sorting_option_selected = self.driver.find_element(*SearchPageLocators.SORTING_DEFAULT)
+        if sorting_option_selected.text == "Najlepiej pasujące":
+            return True
+        else:
+            return False
 
-    def return_list_of_searched_results(self):
-
+    def return_list_of_titles_searched_results(self):
         lista = self.driver.find_elements(*SearchPageLocators.LIST_OF_SEARCHED_PRODUCTS)
         lista_names = self.driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
-        print(len(lista))
+ #       print(len(lista))
         list_of_returned_titles = []
         for title in lista_names:
             print(title.text)
             list_of_returned_titles.append(title.text)
-        print(list_of_returned_titles)
+  #      print(list_of_returned_titles)
         return list_of_returned_titles
 
 
     def choose_product_from_list(self, index):
         names_of_searched_products = self.driver.find_elements(*SearchPageLocators.LIST_OF_NAMES)
         names_of_searched_products[index].click()
+
+
+
+
 
     def clikc_add_to_cart_on_searched_results(self):
         buton = self.driver.find_elements(*SearchPageLocators.ADD_TO_CART_BTN)
