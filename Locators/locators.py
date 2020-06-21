@@ -1,14 +1,14 @@
 from selenium.webdriver.common.by import By
+
 class HomePageLocators():
     SEARCHER = (By.ID, "inputSearch")
-    SEARCH_BTN = (By.XPATH,"//button[@class='button']")
-    BASKET_COUNTER = (By.ID, "koszykbox")
+    # SEARCH_BTN = (By.XPATH,"//button[@class='button']")
+    # BASKET_COUNTER = (By.ID, "koszykbox")
     GO_TO_BASKET = (By.XPATH, "//span[@class='hideFixed']")
     ACCOUNT_BTN = (By.XPATH, "//div[@class='your-profile']//a[contains(text(),'Twoje konto')]")
     LOGIN_BTN = (By.CLASS_NAME, "login-link")
     REGISTER_BTN = (By.CLASS_NAME, "register-link")
     COOKIE = (By.ID, "rodo-ok")
-
 
 class LoginPageLocators():
     EMAIL= (By.NAME, "loginemail")
@@ -26,7 +26,6 @@ class RegisterPageLocators():
     NEWSLETTER_CHECKBOX = (By.XPATH, "//label[@for='newsletter_tak']")
     REGISTER_BTN = (By.XPATH, "//button[contains(text(),'Zakładam konto')]")
     ERRORS = (By.XPATH, "//div[@class='error-info']/p/label[@class='error']")
-
 
 class AccountPageLocators():
     TEXT_CONFIRMATION = (By.XPATH,"//p[contains(text(),'Aktywacja konta w helion.pl, sprawd')]")
@@ -52,13 +51,11 @@ class ProductPageLocators():
     BOX = (By.XPATH, "//fieldset[@class='active']")
     ADD_TO_CART = (By.XPATH, "//fieldset[@class='active']/p[2]/a[contains(text(), 'Dodaj do koszyka')]")
 
-
 class BasketPageLocators():
     ROWS = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']")
-    AMOUNT = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']/td[@class='amount']//input[@class = 'ilosc']")
-    TITLE = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']//td[@class='desc']//a")
+    # AMOUNT = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']/td[@class='amount']//input[@class = 'ilosc']")
+    # TITLE = (By.XPATH, "//table[@id='koszyk']/tbody/tr[@class='pozycja']//td[@class='desc']//a")
     REMOVE = (By.XPATH, "//a[contains(text(),'zaznaczone')]")
-    BACK = (By.CLASS_NAME, "more")
     SELECT_ALL = (By.XPATH, "//th[@class='checkbox']//span[@class='input']")
     EMPTY_BASKET = (By.XPATH, "//p[contains(text(),'Twój koszyk jest pusty')]")
 

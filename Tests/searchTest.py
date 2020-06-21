@@ -4,8 +4,10 @@ from Pages.searchPage import SearchPage
 from Pages.productPage import ProductPage
 import unittest
 
+
 class SearchTest(BaseTest):
     """ Testy związane z wyszukiwaniem produktów """
+
     # def test_01_search_non_existing_product(self):
     #     """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania z podaniem danych niepoprawnych (nieistniejących w bazie)"""
     #     product = "fdsgdsggd"
@@ -41,10 +43,9 @@ class SearchTest(BaseTest):
         self.assertTrue(default_sorting, "Sorting by best match is not set as default")
         sp.choose_product_from_list(0)
         pp = ProductPage(self.driver)
-        title  = pp.product_title()
+        title = pp.product_title()
         self.assertIn(product, title, "incorrect title")
 
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main(verbosity=2)
