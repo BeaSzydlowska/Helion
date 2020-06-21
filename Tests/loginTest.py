@@ -4,7 +4,9 @@ from Pages.accountPage import AccountPage
 from Pages.loginPage import LoginPage
 import unittest
 
+
 class LoginTest(BaseTest):
+
     def test_01_login__with_correct_data(self):
         """Sprawdzenie możliwości zalogowania użytkownika przy wpisaniu poprawnych(istniejących w systemie) danych."""
         mail = "hivoc67077@qmrbe.com"
@@ -21,7 +23,6 @@ class LoginTest(BaseTest):
         greeting_text = ap.verify_logged_in()
         self.assertEqual(greeting, greeting_text, "Something went wrong, probably you are not logged in")
 
-
     def test_02_login__with_incorrect_data(self):
         """Sprawdzenie możliwości zalogowania użytkownika na dane nieistniejące w serwisie"""
         mail = "sgsgfdhhh@gfgfdfgdf.ct"
@@ -36,7 +37,6 @@ class LoginTest(BaseTest):
         lp.click_on_login_btn()
         errors = lp.visible_errors()
         self.assertEqual(error, errors, "Something went wrong, probably you are not logged in")
-
 
 
 if __name__=="__main__":

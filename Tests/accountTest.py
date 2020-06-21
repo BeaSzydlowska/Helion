@@ -6,6 +6,7 @@ import unittest
 
 
 class AccountTest(BaseTest):
+
     def test_01_correctly_logged_out_from_account(self):
         """Sprawdzenie możliwości poprawnego wylogowania użytkownika."""
         mail = "hivoc67077@qmrbe.com"
