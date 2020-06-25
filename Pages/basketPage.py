@@ -1,4 +1,4 @@
-from Pages.basePage import  BasePage
+from Pages.basePage import BasePage
 from Locators.locators import BasketPageLocators
 from time import sleep
 
@@ -22,7 +22,8 @@ class BasketPage(BasePage):
             if name.text in product:
                 amount = row.find_element_by_xpath("//td[@class='amount']//input[@class = 'ilosc']")
                 amount = amount.get_attribute("value")
-            return int(amount)
+                return int(amount)
+
 
     def check_checkbox(self, product):
         """umożliwia zaznaczenie wybranego checkboxa po tytule"""
@@ -82,7 +83,3 @@ class BasketPage(BasePage):
             else:
                 i = False
         print(i)
-
-
-
-

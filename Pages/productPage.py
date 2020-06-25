@@ -21,7 +21,7 @@ class ProductPage(BasePage):
         print("wyczyscilam")
         sleep(10)
         amount_button.send_keys(quantity)
-        if quantity >10:
+        if quantity > 10:
             amount_button.clear()
             return "Wartość nie może być większa niż 10"
         else:

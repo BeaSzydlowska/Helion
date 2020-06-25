@@ -43,12 +43,12 @@ class SearchPageLocators():
 class ProductPageLocators():
     TITLE = (By.XPATH, "//h1/span[@itemprop ='name']")
     BOOK_QUANTITY = (By.CLASS_NAME, "amount-button")
-    ADD_BOOK_TO_BASKET = (By.ID, "addToBasket_pytdk3")
-    ADD_EBOOK_TO_BASKET = (By.ID, "addToBasket_pytdk3_ebook")
-    BOOK_BOX = (By.ID, "box_druk")
-    EBOOK_BOX = (By.ID, "box_ebook")
-    ADD_TO_CART_BTN_LIST = (By.XPATH, "//a[contains(text(), 'Dodaj do koszyka')]")
-    BOX = (By.XPATH, "//fieldset[@class='active']")
+    # ADD_BOOK_TO_BASKET = (By.ID, "addToBasket_pytdk3")
+    # ADD_EBOOK_TO_BASKET = (By.ID, "addToBasket_pytdk3_ebook")
+    # BOOK_BOX = (By.ID, "box_druk")
+    # EBOOK_BOX = (By.ID, "box_ebook")
+    # ADD_TO_CART_BTN_LIST = (By.XPATH, "//a[contains(text(), 'Dodaj do koszyka')]")
+    # BOX = (By.XPATH, "//fieldset[@class='active']")
     ADD_TO_CART = (By.XPATH, "//fieldset[@class='active']/p[2]/a[contains(text(), 'Dodaj do koszyka')]")
 
 class BasketPageLocators():
