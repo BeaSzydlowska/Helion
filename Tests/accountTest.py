@@ -7,7 +7,7 @@ import unittest
 
 class AccountTest(BaseTest):
 
-    def test_01_correctly_logged_out_from_account(self):
+    def test_correctlyLoggedOut(self):
         """Sprawdzenie możliwości poprawnego wylogowania użytkownika."""
         mail = "hivoc67077@qmrbe.com"
         password = 'haslo12345'
@@ -20,7 +20,7 @@ class AccountTest(BaseTest):
         lp.fill_email(mail)
         lp.fill_password(password)
         lp.click_on_login_btn()
-        ap= AccountPage(self.driver)
+        ap = AccountPage(self.driver)
         greeting_text = ap.verify_logged_in()
         self.assertEqual(greeting, greeting_text, "Something went wrong, probably you are not logged in")
         ap.click_on_logout_btn()
@@ -29,4 +29,4 @@ class AccountTest(BaseTest):
 
 
 if __name__=="__main__":
-    unittest.main(verbosity=2)
+    unittest.main()

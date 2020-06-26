@@ -4,10 +4,11 @@ from Pages.registerPage import RegisterPage
 from Pages.accountPage import AccountPage
 import unittest
 
+
 class RegisterTest(BaseTest):
 
-    def test_01_register_fill_required_fields_with_correct_data_and_check_all_required_regulations(self):
-        """Sprawdzenie możliwości założenia konta w serwisie przy wypełnieniu wymaganych pól poprawnymi zdanymi
+    def test_registeCorrectData(self):
+        """Sprawdzenie możliwości założenia konta w serwisie przy wypełnieniu wymaganych pól poprawnymi danymi
          i zaznaczemiu obowiązkowych zgód"""
         mail = "hivoc67077@qmrbe.com"
         password = 'haslo12345'
@@ -25,7 +26,7 @@ class RegisterTest(BaseTest):
         activation = ap.verify_registration()
         self.assertEqual(activation, activation_info , "Something went wrong, probably your accont was not created")
 
-    def test_02_register_all_fields_are_empty_and_all_required_regulations_are_not_checked(self):
+    def test_registerAllfieldsAreEmpty(self):
         """Sprawdzenie możliwości założenia konta w serwisie przy niewypełnieniu wymaganych pól
           i nie zaznaczeniu obowiązkowych zgód"""
 
@@ -38,7 +39,7 @@ class RegisterTest(BaseTest):
         for error in visible_erros:
             self.assertIn(error, errors, "Selected error-info not appeared")
 
-    def test_03_register_using_inorrect_email_format(self):
+    def test_registerUsingInorrectEmailFormat(self):
         """Sprawdzenie możliwości zarejestrowania użytkownika przy próbie wprowadzenia niepoprawnych danych w pole "Twój email"""
 
         errors = ["Podanie poprawnego emaila jest konieczne do dokończenia procesu rejestracji"]
@@ -56,4 +57,4 @@ class RegisterTest(BaseTest):
 
 
 if __name__=="__main__":
-    unittest.main(verbosity=2)
+    unittest.main()

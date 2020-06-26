@@ -5,8 +5,17 @@ from time import sleep
 
 class BasketPage(BasePage):
 
+    def return_len_products_in_basket(self):
+        """umozliwia zwrócenie długosci listy produktów w koszyku"""
+        rows = self.driver.find_elements(*BasketPageLocators.ROWS)
+        productList = []
+        for row in rows:
+            productList.append(row)
+        print(len(rows))
+        return len(rows)
+
     def check_product_name_in_cart(self):
-        """umożliwia zwrócenie tytułu produktu znajdującego siew koszyku"""
+        """umożliwia zwrócenie tytułu produktu znajdującego sie w koszyku"""
         rows = self.driver.find_elements(*BasketPageLocators.ROWS)
         for row in rows:
             name = row.find_element_by_xpath("//td[@class='desc']//h2/a")

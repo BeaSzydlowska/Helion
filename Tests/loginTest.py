@@ -7,11 +7,11 @@ import unittest
 
 class LoginTest(BaseTest):
 
-    def test_01_login__with_correct_data(self):
+    def test_loginWithCorrectData(self):
         """Sprawdzenie możliwości zalogowania użytkownika przy wpisaniu poprawnych(istniejących w systemie) danych."""
         mail = "hivoc67077@qmrbe.com"
         password = 'haslo12345'
-        greeting = "Witaj w Twoim koncie"
+        greeting = "Witaj"
         hp = HomePage(self.driver)
         hp.accept_cookie_policy()
         hp.go_to_login_page()
@@ -19,11 +19,11 @@ class LoginTest(BaseTest):
         lp.fill_email(mail)
         lp.fill_password(password)
         lp.click_on_login_btn()
-        ap= AccountPage(self.driver)
+        ap = AccountPage(self.driver)
         greeting_text = ap.verify_logged_in()
         self.assertEqual(greeting, greeting_text, "Something went wrong, probably you are not logged in")
 
-    def test_02_login__with_incorrect_data(self):
+    def test_loginWithIncorrectData(self):
         """Sprawdzenie możliwości zalogowania użytkownika na dane nieistniejące w serwisie"""
         mail = "sgsgfdhhh@gfgfdfgdf.ct"
         password = 'haslo12345'
@@ -40,4 +40,4 @@ class LoginTest(BaseTest):
 
 
 if __name__=="__main__":
-    unittest.main(verbosity=2)
+    unittest.main()

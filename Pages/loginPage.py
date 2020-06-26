@@ -1,11 +1,12 @@
-from Pages.basePage import  BasePage
+from Pages.basePage import BasePage
 from Locators.locators import LoginPageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class LoginPage(BasePage):
 
-    def fill_email(self,email):
+    def fill_email(self, email):
         """umożliwia wprowadzenie maila"""
         mail = self.driver.find_element(*LoginPageLocators.EMAIL)
         mail.send_keys(email)
