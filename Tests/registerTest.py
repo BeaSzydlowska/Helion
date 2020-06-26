@@ -35,7 +35,7 @@ class RegisterTest(BaseTest):
         hp.go_to_register_page()
         rp = RegisterPage(self.driver)
         rp.click_on_register_btn()
-        visible_erros =rp.verify_visible_errors()
+        visible_erros = rp.verify_visible_errors()
         for error in visible_erros:
             self.assertIn(error, errors, "Selected error-info not appeared")
 

@@ -22,7 +22,7 @@ class LoginPage(BasePage):
         self.driver.find_element(*LoginPageLocators.ZALOGUJ_BTN).click()
 
     def verify_logout(self):
-        "zwraca napis ....."
+        "zwraca napis 'Zostałeś poprawnie wylogowany"
         logout_message = self.driver.find_element(*LoginPageLocators.LOGOUT_MESSAGE)
         return logout_message.text
 

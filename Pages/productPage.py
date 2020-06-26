@@ -18,8 +18,7 @@ class ProductPage(BasePage):
         WebDriverWait(self.driver, 10).until((EC.presence_of_element_located(ProductPageLocators.BOOK_QUANTITY)))
         amount_button = self.driver.find_element(*ProductPageLocators.BOOK_QUANTITY)
         amount_button.clear()
-        print("wyczyscilam")
-        sleep(10)
+        # sleep(10)
         amount_button.send_keys(quantity)
         if quantity > 10:
             amount_button.clear()
@@ -32,4 +31,4 @@ class ProductPage(BasePage):
         WebDriverWait(self.driver,10).until(EC.element_to_be_clickable(ProductPageLocators.ADD_TO_CART))
         button= self.driver.find_element(*ProductPageLocators.ADD_TO_CART)
         button.click()
-        sleep(5)
+        # sleep(5)

@@ -11,7 +11,6 @@ if __name__ == '__main__':
 
     loader = TestLoader()
     suite = TestSuite((
-        # loader.loadTestsFromTestCase(BaseTest),
         loader.loadTestsFromTestCase(RegisterTest),
         loader.loadTestsFromTestCase(LoginTest),
         loader.loadTestsFromTestCase(AccountTest),

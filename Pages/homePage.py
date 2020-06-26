@@ -22,8 +22,6 @@ class HomePage(BasePage):
         """umożliwia powrót do strony głównej"""
         self.driver.get('https://helion.pl/')
         title = self.driver.title
-        print(title)
-        #Księgarnia internetowa informatyczna Helion.pl - wydawnictwo informatyczne, książki, kursy
         return title
 
     def go_to_basket(self):
