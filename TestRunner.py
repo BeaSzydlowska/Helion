@@ -11,10 +11,10 @@ if __name__ == '__main__':
 
     loader = TestLoader()
     suite = TestSuite((
-        loader.loadTestsFromTestCase(RegisterTest),
-        loader.loadTestsFromTestCase(LoginTest),
-        loader.loadTestsFromTestCase(AccountTest),
-        loader.loadTestsFromTestCase(SearchTest),
+        # loader.loadTestsFromTestCase(RegisterTest),
+        # loader.loadTestsFromTestCase(LoginTest),
+        # loader.loadTestsFromTestCase(AccountTest),
+        # loader.loadTestsFromTestCase(SearchTest),
         loader.loadTestsFromTestCase(BasketTest)))
 
     runner = TextTestRunner()

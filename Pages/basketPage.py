@@ -16,6 +16,7 @@ class BasketPage(BasePage):
     def check_product_name_in_cart(self):
         """umożliwia zwrócenie tytułu produktu znajdującego sie w koszyku"""
         rows = self.driver.find_elements(*BasketPageLocators.ROWS)
+        sleep(5)
         for row in rows:
             name = row.find_element_by_xpath("//td[@class='desc']//h2/a")
             return name.text
