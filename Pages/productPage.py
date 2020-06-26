@@ -14,7 +14,6 @@ class ProductPage(BasePage):
 
     def enter_book_quantity(self, quantity):
         """umozliwia wprowadzenie ilości dla książek"""
-        print("wchodze do quantity")
         WebDriverWait(self.driver, 10).until((EC.presence_of_element_located(ProductPageLocators.BOOK_QUANTITY)))
         amount_button = self.driver.find_element(*ProductPageLocators.BOOK_QUANTITY)
         amount_button.clear()
