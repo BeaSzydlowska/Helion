@@ -23,8 +23,7 @@ class SearchTest(BaseTest):
     """ Testy związane z wyszukiwaniem produktów """
 
     def test_searchNonExistingProduct(self):
-        """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania
-        z podaniem danych niepoprawnych (nieistniejących w bazie)"""
+        """checks the possibility to search non existing product"""
         product = "fdsgdsggd"
         hp = HomePage(self.driver)
         hp.enter_searched_product(product)
@@ -37,8 +36,7 @@ class SearchTest(BaseTest):
     @data(*get_data("producttitles.csv"))
     @unpack
     def test_03_searching_by_title(self, product):
-        """Sprawdzenie poprawności wyszukiwania produktów za pośrednictwem okienka wyszukiwania
-        z podaniem istniejącego dokładnego tytułu"""
+        """checks the possibility to search product by its title"""
         hp = HomePage(self.driver)
         hp.enter_searched_product(product)
         sp = SearchPage(self.driver)

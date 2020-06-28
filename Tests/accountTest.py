@@ -8,7 +8,7 @@ import unittest
 class AccountTest(BaseTest):
 
     def test_correctlyLoggedOut(self):
-        """Sprawdzenie możliwości poprawnego wylogowania użytkownika."""
+        """checks the possibility to correctly log out from an account"""
         mail = "hivoc67077@qmrbe.com"
         password = 'haslo12345'
         greeting = "Witaj"

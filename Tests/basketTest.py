@@ -22,7 +22,7 @@ def get_data(file_name):
 class BasketTest(BaseTest):
 
     def test_addSelectedBookQuantity(self):
-        """Sprawdzenie możliwości dodania kilku sztuk tej samej ksiazki z karty produktu  do koszyka"""
+        """checks the possibility to add selected quantity of the same book"""
         product = "Python dla każdego. Podstawy programowania. Wydanie III"
         quantity = 4
         hp = HomePage(self.driver)
@@ -45,7 +45,7 @@ class BasketTest(BaseTest):
     @data(*get_data("listofproducttitles.csv"))
     @unpack
     def test_addMultiplePoducts(self, *products):
-        """Test poprawnego dodania wielu produktów niezaleznie od rodzaju"""
+        """checks the possibility to add many products(regardless of the type of product) to the basket"""
         hp = HomePage(self.driver)
         sp = SearchPage(self.driver)
         pp = ProductPage(self.driver)
@@ -71,7 +71,7 @@ class BasketTest(BaseTest):
                 hp.return_to_home_page()
 
     def test_removeSelectedProducts(self):
-        """Sprawdzenie możliwosci poprawnego usuniecia wybranych produktów z koszyka"""
+        """checks the possibility to remove selected products from the basket"""
         product_list = ["dsgdsgsgdfg", "Frontend developer. Kurs video. HTML i CSS. Poziom średnio zaawansowany",
                         "Tysiąc szklanek herbaty. Spotkania na Jedwabnym Szlaku",
                         "English 4 IT. Praktyczny kurs języka angielskiego dla specjalistów IT i nie tylko"]
@@ -111,7 +111,7 @@ class BasketTest(BaseTest):
         self.assertEqual(remove_results, product_left, "Selected product was not removed")
 
     def test_removeAllProducts(self):
-        """Sprawdzenie możliwosci poprawnego usuniecia wszystkich produktów z koszyka (opróżnienia koszyka)"""
+        """checks the possibility to remove all products from the basket"""
         product_list = ["Frontend developer. Kurs video. HTML i CSS. Poziom średnio zaawansowany", "fdsfdgfdgfdgdfg",
                         "Tysiąc szklanek herbaty. Spotkania na Jedwabnym Szlaku",
                         "English 4 IT. Praktyczny kurs języka angielskiego dla specjalistów IT i nie tylko"]

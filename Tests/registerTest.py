@@ -8,8 +8,8 @@ import unittest
 class RegisterTest(BaseTest):
 
     def test_registeCorrectData(self):
-        """Sprawdzenie możliwości założenia konta w serwisie przy wypełnieniu wymaganych pól poprawnymi danymi
-         i zaznaczemiu obowiązkowych zgód"""
+        """checks the possibility to register account if the required fields are filled with the correct data
+        and required regulations are selected"""
         mail = "hivoc67077@qmrbe.com"
         password = 'haslo12345'
         activation_info = 'Aktywacja konta w helion.pl, sprawdź swój e-mail!'
@@ -24,11 +24,11 @@ class RegisterTest(BaseTest):
         rp.click_on_register_btn()
         ap= AccountPage(self.driver)
         activation = ap.verify_registration()
-        self.assertEqual(activation, activation_info , "Something went wrong, probably your accont was not created")
+        self.assertEqual(activation, activation_info, "Something went wrong, probably your accont was not created")
 
     def test_registerAllfieldsAreEmpty(self):
-        """Sprawdzenie możliwości założenia konta w serwisie przy niewypełnieniu wymaganych pól
-          i nie zaznaczeniu obowiązkowych zgód"""
+        """checks the possibility to register account if the required fields are blank
+        and required regulations are not selected"""
 
         errors = ["Podanie poprawnego emaila jest konieczne do dokończenia procesu rejestracji", "Wprowadź hasło (min. 5 znaków)", "Hasła muszą się zgadzać", "Musisz zaakceptować regulamin"]
         hp = HomePage(self.driver)
@@ -40,7 +40,7 @@ class RegisterTest(BaseTest):
             self.assertIn(error, errors, "Selected error-info not appeared")
 
     def test_registerUsingInorrectEmailFormat(self):
-        """Sprawdzenie możliwości zarejestrowania użytkownika przy próbie wprowadzenia niepoprawnych danych w pole "Twój email"""
+        """checks the possibility to register account if email field is filled with the incorrect data and required regulations are selected"""
 
         errors = ["Podanie poprawnego emaila jest konieczne do dokończenia procesu rejestracji"]
         password = 'haslo12345'

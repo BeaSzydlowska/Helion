@@ -3,9 +3,6 @@ from selenium import webdriver
 
 
 class BaseTest(unittest.TestCase):
-    """
-    Klasa bazowa każdego testu
-    """
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -18,4 +15,4 @@ class BaseTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    unittest.main()
