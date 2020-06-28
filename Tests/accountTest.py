@@ -28,5 +28,5 @@ class AccountTest(BaseTest):
         self.assertEqual(message, logout_message, "Something went wrong, probably you are not logged out")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
