@@ -65,8 +65,6 @@ class BasketTest(BaseTest):
                 pp.add_to_cart()
                 bp = BasketPage(self.driver)
                 product_name = bp.check_product_name_in_cart()
-                print(f"to jest nazwa produktu pobranego z pliku: {product}")
-                print(f"to jest product name, czyli to co jest w koszyku: {product_name}")
                 self.assertIn(product, product_name, "Selected product not added to basket")
                 hp.return_to_home_page()
             else:
