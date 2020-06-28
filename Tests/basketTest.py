@@ -106,7 +106,7 @@ class BasketTest(BaseTest):
                 hp.return_to_home_page()
         hp.go_to_basket()
         for product in product_to_remove:
-            bp.check_checkbox(product)
+            bp.select_checkbox(product)
 
         bp.click_remove_selected()
         remove_results = bp.remove_results()
